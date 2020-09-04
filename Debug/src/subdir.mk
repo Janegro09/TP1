@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/TP1.c 
+../src/TP1.c \
+../src/utn.c 
 
 OBJS += \
-./src/TP1.o 
+./src/TP1.o \
+./src/utn.o 
 
 C_DEPS += \
-./src/TP1.d 
+./src/TP1.d \
+./src/utn.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
