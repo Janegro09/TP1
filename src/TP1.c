@@ -22,19 +22,19 @@ int main(void) {
 	int resultadoA;
 	int resultadoB;
 
-	resultadoA=utn_getEntero(&operadorA,"Ingrese el numero\n", "Error - Ingrese un numero valido\n", 3);
+	resultadoA=utn_getEntero(&operadorA,"Ingrese el primer operando: ", "Error - Ingrese un numero valido", 3);
 
 	if(resultadoA==0)
 	{
-		resultadoB=utn_getEntero(&operadorB,"Ingrese el numero\n", "Error - Ingrese un numero valido\n", 3);
+		resultadoB=utn_getEntero(&operadorB,"Ingrese el segundo operando: ", "Error - Ingrese un numero valido", 3);
 		if(resultadoB==0)
 		{
-			printf("el primero es %d y el segundo %d y las operaciones que se pueden realizar son:", operadorA, operadorB);
-			calcularSuma();
-			calcularResta();
-			calcularMultiplicacion();
-			calcularDivision();
-			calcularFactorial();
+			printf("Ingresaste %d y %d :", operadorA, operadorB);
+			calcularSuma(operadorA, operadorB);
+			calcularResta(operadorA, operadorB);
+			calcularMultiplicacion(operadorA, operadorB);
+			calcularDivision(operadorA, operadorB);
+			calcularFactorial(operadorA);
 		} else {
 			printf("Error en el segundo operando");
 		}
