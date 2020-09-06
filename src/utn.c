@@ -65,7 +65,7 @@ void utn_calcularMultiplicacion(int operador1, int operador2){
 
 void utn_calcularFactorial(int operador){
 	int factorial=1;
-	if(operador>0)
+	if(operador>=0)
 	{
 		for(int i=0;i<operador;i++)
 		{

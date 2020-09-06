@@ -2,17 +2,14 @@
  ============================================================================
  Name        : TP1.c
  Author      : Javier Sosa
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Division    : 1-H
  ============================================================================
- */
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdio_ext.h>
 #include "utn.h"
-
 
 int main(void) {
 
@@ -22,11 +19,10 @@ int main(void) {
 	int resultadoA;
 	int resultadoB;
 
-	resultadoA=utn_getEntero(&operadorA,"Ingrese el primer operando: ", "Error - Ingrese un numero valido", 3);
-
+	resultadoA=utn_getEntero(&operadorA,"Ingrese el primer operando: ", "Error - Ingrese un numero valido", 1);
 	if(resultadoA==0)
 	{
-		resultadoB=utn_getEntero(&operadorB,"Ingrese el segundo operando: ", "Error - Ingrese un numero valido", 3);
+		resultadoB=utn_getEntero(&operadorB,"Ingrese el segundo operando: ", "Error - Ingrese un numero valido", 1);
 		if(resultadoB==0)
 		{
 			printf("Ingresaste %d y %d :", operadorA, operadorB);
