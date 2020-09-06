@@ -29,7 +29,12 @@ int main(void) {
 		resultadoB=utn_getEntero(&operadorB,"Ingrese el numero\n", "Error - Ingrese un numero valido\n", 3);
 		if(resultadoB==0)
 		{
-			printf("el primer numero es %d y el segundo %d", operadorA, operadorB);
+			printf("el primero es %d y el segundo %d y las operaciones que se pueden realizar son:", operadorA, operadorB);
+			calcularSuma();
+			calcularResta();
+			calcularMultiplicacion();
+			calcularDivision();
+			calcularFactorial();
 		} else {
 			printf("Error en el segundo operando");
 		}

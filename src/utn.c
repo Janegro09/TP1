@@ -34,3 +34,20 @@ int utn_getEntero(int* pOperador,char* pTexto, char* pTextoError, int intentos)
 	return retorno;
 }
 
+void calcularSuma(){
+	printf("\nHola suma");
+}
+void calcularResta(){
+	printf("\nHola resta");
+}
+void calcularDivision(){
+	printf("\nHola division");
+}
+void calcularMultiplicacion(){
+	printf("\nHola multiplicacion");
+}
+void calcularFactorial(){
+	printf("\nHola factorial");
+}
+
+
