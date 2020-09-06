@@ -33,19 +33,19 @@ int utn_getEntero(int* pOperador,char* pTexto, char* pTextoError, int intentos)
 	return retorno;
 }
 
-void calcularSuma(int operador1, int operador2){
+void utn_calcularSuma(int operador1, int operador2){
 	int suma;
 	suma = operador1+operador2;
 	printf("\nEl resultado de %d + %d es: %d",operador1,operador2,suma);
 }
 
-void calcularResta(int operador1, int operador2){
+void utn_calcularResta(int operador1, int operador2){
 	int resta;
 	resta = operador1-operador2;
 	printf("\nEl resultado de %d - %d es: %d",operador1,operador2,resta);
 }
 
-void calcularDivision(int operador1, int operador2){
+void utn_calcularDivision(int operador1, int operador2){
 	float division;
 	if(operador2 == 0)
 	{
@@ -57,17 +57,22 @@ void calcularDivision(int operador1, int operador2){
 	}
 }
 
-void calcularMultiplicacion(int operador1, int operador2){
+void utn_calcularMultiplicacion(int operador1, int operador2){
 	int multiplicacion;
 	multiplicacion=operador1*operador2;
 	printf("\nEl resultado de %d * %d es %d", operador1, operador2, multiplicacion);
 }
 
-void calcularFactorial(int operador){
+void utn_calcularFactorial(int operador){
 	int factorial=1;
-	for(int i=0;i<operador;i++)
+	if(operador>0)
 	{
-		factorial=factorial*(i+1);
+		for(int i=0;i<operador;i++)
+		{
+			factorial=factorial*(i+1);
+		}
+		printf("\nEl resultado de %d! es %d: ", operador, factorial);
+	} else {
+		printf("\nNo se puede realizar el factorial de un numero negativo");
 	}
-	printf("\nEl resultado de %d! es %d: ", operador, factorial);
 }

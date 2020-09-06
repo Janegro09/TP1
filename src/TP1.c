@@ -30,11 +30,11 @@ int main(void) {
 		if(resultadoB==0)
 		{
 			printf("Ingresaste %d y %d :", operadorA, operadorB);
-			calcularSuma(operadorA, operadorB);
-			calcularResta(operadorA, operadorB);
-			calcularMultiplicacion(operadorA, operadorB);
-			calcularDivision(operadorA, operadorB);
-			calcularFactorial(operadorA);
+			utn_calcularSuma(operadorA, operadorB);
+			utn_calcularResta(operadorA, operadorB);
+			utn_calcularMultiplicacion(operadorA, operadorB);
+			utn_calcularDivision(operadorA, operadorB);
+			utn_calcularFactorial(operadorA);
 		} else {
 			printf("Error en el segundo operando");
 		}
