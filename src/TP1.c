@@ -11,6 +11,10 @@
 #include <stdio_ext.h>
 #include "utn.h"
 
+#define CANTINTENTOS 3
+#define ERRORSEGUNDOINTENTOENTERO "Error - Ingrese un numero valido: "
+#define ERRORDATO "Error en el numero ingresado"
+
 int main(void) {
 
 	setbuf(stdout,NULL);
@@ -19,10 +23,10 @@ int main(void) {
 	int resultadoA;
 	int resultadoB;
 
-	resultadoA=utn_getEntero(&operadorA,"Ingrese el primer operando: ", "Error - Ingrese un numero valido", 1);
+	resultadoA=utn_getEntero(&operadorA,"Ingrese el primer operando: ",ERRORSEGUNDOINTENTOENTERO , CANTINTENTOS);
 	if(resultadoA==0)
 	{
-		resultadoB=utn_getEntero(&operadorB,"Ingrese el segundo operando: ", "Error - Ingrese un numero valido", 1);
+		resultadoB=utn_getEntero(&operadorB,"Ingrese el segundo operando: ", ERRORSEGUNDOINTENTOENTERO, CANTINTENTOS);
 		if(resultadoB==0)
 		{
 			printf("Ingresaste %d y %d :", operadorA, operadorB);
@@ -32,11 +36,10 @@ int main(void) {
 			utn_calcularDivision(operadorA, operadorB);
 			utn_calcularFactorial(operadorA);
 		} else {
-			printf("Error en el segundo operando");
+			printf(ERRORDATO);
 		}
 	} else {
-		printf("Error en el primer operando");
+		printf(ERRORDATO);
 	}
-
 	return EXIT_SUCCESS;
 }

@@ -53,7 +53,7 @@ void utn_calcularDivision(int operador1, int operador2){
 	}
 	else {
 		division=(float)operador1/operador2;
-		printf("\nEl resultado de %d / %d es %.2f", operador1, operador2, division);
+		printf("\nEl resultado de %d / %d es: %.2f", operador1, operador2, division);
 	}
 }
 
