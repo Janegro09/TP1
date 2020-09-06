@@ -2,26 +2,35 @@
 #include <stdlib.h>
 #include <stdio_ext.h>
 
-int utn_getEntero(int* pOperador,char* pTexto, char* pTextoError, int pIntentos)
+int utn_getEntero(int* pOperador,char* pTexto, char* pTextoError, int intentos)
 {
 	int retorno=-1;
-	int* operadorBuffer;
+	int operadorBuffer;
 	int resultadoScan;
+	int intentosFallidos=0;
 
 	printf("%s",pTexto);
 	__fpurge(stdin);
-	resultadoScan=scanf("%d",operadorBuffer);
+	resultadoScan=scanf("%d",&operadorBuffer);
 	while(resultadoScan ==0)
 	{
-		printf("%s",pTextoError);
-		__fpurge(stdin);
-		resultadoScan=scanf("%d",operadorBuffer);
+		if(intentosFallidos<intentos)
+		{
+			printf("%s",pTextoError);
+			__fpurge(stdin);
+			resultadoScan=scanf("%d",&operadorBuffer);
+			intentosFallidos++;
+		} else {
+			break;
+		}
 	}
-	printf("Los intentos son %d",pIntentos);
-	retorno=0;
-	*pOperador=*operadorBuffer;
+
+	if (intentosFallidos<=intentos)
+	{
+		retorno=0;
+		*pOperador=operadorBuffer;
+	}
 
 	return retorno;
-
 }
 
