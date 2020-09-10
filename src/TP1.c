@@ -13,7 +13,8 @@
 
 #define CANTINTENTOS 3
 #define ERRORSEGUNDOINTENTOENTERO "Error - Ingrese un numero valido: "
-#define ERRORDATO "Error en el numero ingresado"
+#define ERRORDATO "Error dato invalido"
+#define TEXTOCALCULADORA "Ingrese un numero para la operacion:\n 1) + (suma) \n 2) - (resta) \n 3) * (multiplicacion) \n 4) / (division) \n 5) ! (factorial) \n 6) Todas las operaciones anteriores \n"
 
 int main(void) {
 
@@ -22,24 +23,57 @@ int main(void) {
 	int operadorB;
 	int resultadoA;
 	int resultadoB;
+	int operador;
+	char continuar='N';
 
-	resultadoA=utn_getEntero(&operadorA,"Ingrese el primer operando: ",ERRORSEGUNDOINTENTOENTERO , CANTINTENTOS);
-	if(resultadoA==0)
+	do
 	{
-		resultadoB=utn_getEntero(&operadorB,"Ingrese el segundo operando: ", ERRORSEGUNDOINTENTOENTERO, CANTINTENTOS);
-		if(resultadoB==0)
+		resultadoA=utn_getEntero("Ingrese el primer operando: ",ERRORSEGUNDOINTENTOENTERO , CANTINTENTOS, &operadorA);
+		if(resultadoA==0)
 		{
-			printf("Ingresaste %d y %d :", operadorA, operadorB);
-			utn_calcularSuma(operadorA, operadorB);
-			utn_calcularResta(operadorA, operadorB);
-			utn_calcularMultiplicacion(operadorA, operadorB);
-			utn_calcularDivision(operadorA, operadorB);
-			utn_calcularFactorial(operadorA);
+			resultadoB=utn_getEntero("Ingrese el segundo operando: ", ERRORSEGUNDOINTENTOENTERO, CANTINTENTOS, &operadorB);
+			if(resultadoB==0)
+			{
+				printf("Ingresaste %d y %d :\n", operadorA, operadorB);
+				utn_getEntero(TEXTOCALCULADORA,ERRORSEGUNDOINTENTOENTERO , 0, &operador);
+					switch (operador)
+					{
+						case 1:
+							utn_calcularSuma(operadorA, operadorB);
+							break;
+						case 2:
+							utn_calcularResta(operadorA, operadorB);
+							break;
+						case 3:
+							utn_calcularMultiplicacion(operadorA, operadorB);
+							break;
+						case 4:
+							utn_calcularDivision(operadorA, operadorB);
+							break;
+						case 5:
+							utn_calcularFactorial(operadorA);
+							break;
+						case 6:
+							utn_calcularSuma(operadorA, operadorB);
+							utn_calcularResta(operadorA, operadorB);
+							utn_calcularMultiplicacion(operadorA, operadorB);
+							utn_calcularDivision(operadorA, operadorB);
+							utn_calcularFactorial(operadorA);
+							break;
+						default:
+							printf("Error - Operador invalido \n");
+							break;
+					}
+			printf("Ingrese S para continuar realizando operaciones, para salir cualquier otra letra\n");
+			__fpurge(stdin);
+			scanf("%c",&continuar);
 		} else {
 			printf(ERRORDATO);
 		}
 	} else {
 		printf(ERRORDATO);
 	}
+	} while (continuar=='S');
+
 	return EXIT_SUCCESS;
 }
