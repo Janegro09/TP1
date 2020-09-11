@@ -64,7 +64,7 @@ int main(void) {
 							printf("Error - Operador invalido \n");
 							break;
 					}
-			printf("Ingrese S para continuar realizando operaciones, para salir cualquier otra letra\n");
+			printf("Ingrese S para continuar realizando operaciones, para salir cualquier otro valor\n");
 			__fpurge(stdin);
 			scanf("%c",&continuar);
 		} else {

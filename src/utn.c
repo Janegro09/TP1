@@ -49,13 +49,9 @@ int utn_getEntero(char* pTexto, char* pTextoError, int reintentos, int* pOperado
 	return retorno;
 }
 /**
- * \brief Solicita un entero al usuario
- * \param char* pTexto, es el mensaje a ser mostrado al usuario
- * \param char* pTextoError, es el mensaje de error a ser mostrado al usuario
- * \param reintentos, cantidad de oportunidades para ingresar el dato
- * \param int pResultado, puntero al espacio de memoria donde se dejara el valor obtenido
- * \param int maximo, valor maximo admitido
- * \param int minimo, valor minimo admitido
+ * \brief Toma dos enteros, realiza la suma y lo imprime en pantalla
+ * \param int operador1, el primer numero
+ * \param int operador, el segundo numero
  * \return no retorna
  */
 void utn_calcularSuma(int operador1, int operador2){
@@ -64,12 +60,24 @@ void utn_calcularSuma(int operador1, int operador2){
 	printf("El resultado de %d + %d es: %d\n",operador1,operador2,suma);
 }
 
+/**
+ * \brief Toma dos enteros, realiza la resta y lo imprime en pantalla
+ * \param int operador1, el primer numero
+ * \param int operador, el segundo numero
+ * \return no retorna
+ */
 void utn_calcularResta(int operador1, int operador2){
 	int resta;
 	resta = operador1-operador2;
 	printf("El resultado de %d - %d es: %d\n",operador1,operador2,resta);
 }
 
+/**
+ * \brief Toma dos enteros, realiza la Division y lo imprime en pantalla
+ * \param int operador1, el primer numero
+ * \param int operador, el segundo numero
+ * \return no retorna
+ */
 void utn_calcularDivision(int operador1, int operador2){
 	float division;
 	if(operador2 == 0)
@@ -82,12 +90,23 @@ void utn_calcularDivision(int operador1, int operador2){
 	}
 }
 
+/**
+ * \brief Toma dos enteros, realiza la multiplicacion y lo imprime en pantalla
+ * \param int operador1, el primer numero
+ * \param int operador, el segundo numero
+ * \return no retorna
+ */
 void utn_calcularMultiplicacion(int operador1, int operador2){
 	int multiplicacion;
 	multiplicacion=operador1*operador2;
 	printf("El resultado de %d * %d es %d\n", operador1, operador2, multiplicacion);
 }
 
+/**
+ * \brief Toma un entero, realiza el factorial de un numero
+ * \param int operador, el primer numero
+ * \return no retorna
+ */
 void utn_calcularFactorial(int operador){
 	int factorial=1;
 	if(operador>=0)
