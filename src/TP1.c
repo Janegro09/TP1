@@ -15,6 +15,8 @@
 #define ERRORSEGUNDOINTENTOENTERO "Error - Ingrese un numero valido: "
 #define ERRORDATO "Error dato invalido"
 #define TEXTOCALCULADORA "Ingrese un numero para la operacion:\n 1) + (suma) \n 2) - (resta) \n 3) * (multiplicacion) \n 4) / (division) \n 5) ! (factorial) \n 6) Todas las operaciones anteriores \n"
+#define MAXIMO 50000
+#define MINIMO -50000
 
 int main(void) {
 
@@ -24,18 +26,23 @@ int main(void) {
 	int resultadoA;
 	int resultadoB;
 	int operador;
+	int resultadoOperacion;
 	char continuar='N';
 
 	do
 	{
-		resultadoA=utn_getEntero("Ingrese el primer operando: ",ERRORSEGUNDOINTENTOENTERO , CANTINTENTOS, &operadorA);
+		resultadoA=utn_getEntero("Ingrese el primer operando: ",ERRORSEGUNDOINTENTOENTERO , CANTINTENTOS, MAXIMO, MINIMO, &operadorA);
 		if(resultadoA==0)
 		{
-			resultadoB=utn_getEntero("Ingrese el segundo operando: ", ERRORSEGUNDOINTENTOENTERO, CANTINTENTOS, &operadorB);
+			resultadoB=utn_getEntero("Ingrese el segundo operando: ", ERRORSEGUNDOINTENTOENTERO, CANTINTENTOS, MAXIMO, MINIMO, &operadorB);
 			if(resultadoB==0)
 			{
 				printf("Ingresaste %d y %d :\n", operadorA, operadorB);
-				utn_getEntero(TEXTOCALCULADORA,ERRORSEGUNDOINTENTOENTERO , 0, &operador);
+
+				do{
+				resultadoOperacion=utn_getEntero(TEXTOCALCULADORA,ERRORSEGUNDOINTENTOENTERO , 0, 6, 1,&operador);
+				} while(resultadoOperacion!=0);
+
 					switch (operador)
 					{
 						case 1:

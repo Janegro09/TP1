@@ -12,39 +12,43 @@
  * \return (1) Error / (0) Tomo el entero ok
  */
 
-int utn_getEntero(char* pTexto, char* pTextoError, int reintentos, int* pOperador, int maximo, int minimo)
+int utn_getEntero(char* pTexto, char* pTextoError, int reintentos, int maximo, int minimo, int* pOperador)
 {
+
 	int retorno=1;
-	int banderaIntentos=1;
+	int banderaIntentos=0;
 	int operadorBuffer;
 	int resultadoScan;
 	int intentosFallidos=0;
 
-	if(pTexto!=NULL &&
-		pTextoError!=NULL &&
-		pOperador!=NULL &&
-		reintentos >= 0)
-	{
-	printf("%s",pTexto);
-	__fpurge(stdin);
-	resultadoScan=scanf("%d",&operadorBuffer);
-	while(resultadoScan ==0)
-	{
-		if(intentosFallidos<reintentos)
+	if(
+			pTexto!=NULL &&
+			pTextoError!=NULL &&
+			minimo<maximo &&
+			reintentos>=0
+		)
 		{
-			printf("%s",pTextoError);
-			__fpurge(stdin);
-			resultadoScan=scanf("%d",&operadorBuffer);
-			intentosFallidos++;
-		} else {
-			banderaIntentos=0;
-			break;
+
+		printf("%s",pTexto);
+		__fpurge(stdin);
+		resultadoScan=scanf("%d",&operadorBuffer);
+		while(resultadoScan ==0)
+		{
+			if(intentosFallidos<reintentos)
+			{
+				printf("%s",pTextoError);
+				__fpurge(stdin);
+				resultadoScan=scanf("%d",&operadorBuffer);
+				intentosFallidos++;
+			} else {
+				banderaIntentos=1;
+				break;
+			}
 		}
-	}
-	if(banderaIntentos==1){
-		retorno=0;
-		*pOperador=operadorBuffer;
-	}
+		if(banderaIntentos==0){
+			retorno=0;
+			*pOperador=operadorBuffer;
+		}
 	}
 	return retorno;
 }
@@ -63,7 +67,7 @@ void utn_calcularSuma(int operador1, int operador2){
 /**
  * \brief Toma dos enteros, realiza la resta y lo imprime en pantalla
  * \param int operador1, el primer numero
- * \param int operador, el segundo numero
+ * \param int operador2, el segundo numero
  * \return no retorna
  */
 void utn_calcularResta(int operador1, int operador2){
@@ -75,7 +79,7 @@ void utn_calcularResta(int operador1, int operador2){
 /**
  * \brief Toma dos enteros, realiza la Division y lo imprime en pantalla
  * \param int operador1, el primer numero
- * \param int operador, el segundo numero
+ * \param int operador2, el segundo numero
  * \return no retorna
  */
 void utn_calcularDivision(int operador1, int operador2){
@@ -93,7 +97,7 @@ void utn_calcularDivision(int operador1, int operador2){
 /**
  * \brief Toma dos enteros, realiza la multiplicacion y lo imprime en pantalla
  * \param int operador1, el primer numero
- * \param int operador, el segundo numero
+ * \param int operador2, el segundo numero
  * \return no retorna
  */
 void utn_calcularMultiplicacion(int operador1, int operador2){
