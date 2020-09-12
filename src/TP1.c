@@ -91,6 +91,8 @@ int main(void) {
 				BARRA;
 				if(banderaOperadorA!=0 && banderaOperadorB!=0 && banderaOperacionesRealidas!=0)
 				{
+					BARRA;
+
 					printf("El resultado de %d + %d es: %d\n", operadorA, operadorB, resultadoSumar);
 					printf("El resultado de %d - %d es: %d\n", operadorA, operadorB, resultadoRestar);
 					printf("El resultado de %d * %d es: %d\n", operadorA, operadorB, resultadoMultiplicar);
@@ -106,6 +108,9 @@ int main(void) {
 					} else {
 						printf("No es posible realizar el factorial de numeros negativos\n");
 					}
+					banderaOperadorA=0;
+					banderaOperadorB=0;
+					BARRA;
 				} else {
 					printf("Tenes que ingresar los dos operadores para realizar los calculos y despues realizar los calculos para imprimir los resultados\n");
 				}
@@ -115,11 +120,11 @@ int main(void) {
 				break;
 			default:
 				BARRA;
-				printf("Error al tomar la opcion");
+				printf("Error al tomar la opcion\n");
 				break;
 			}
 		} else {
-			printf("Te quedaste sin intentos");
+			printf("Te quedaste sin intentos\n");
 		}
 	} while (continuar!=1 && resultadoOpcionMenuElegida==0);
 
