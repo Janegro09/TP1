@@ -91,8 +91,6 @@ int main(void) {
 				BARRA;
 				if(banderaOperadorA!=0 && banderaOperadorB!=0 && banderaOperacionesRealidas!=0)
 				{
-					BARRA;
-
 					printf("El resultado de %d + %d es: %d\n", operadorA, operadorB, resultadoSumar);
 					printf("El resultado de %d - %d es: %d\n", operadorA, operadorB, resultadoRestar);
 					printf("El resultado de %d * %d es: %d\n", operadorA, operadorB, resultadoMultiplicar);
