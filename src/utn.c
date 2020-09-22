@@ -15,11 +15,9 @@
 int utn_getEntero(char* pTexto, char* pTextoError, int reintentos, int maximo, int minimo, int* pOperador)
 {
 
-	int retorno=1;
-	int banderaIntentos=0;
+	int retorno=-1;
 	int operadorBuffer;
 	int resultadoScan;
-	int intentosFallidos=0;
 
 	if(
 		pTexto!=NULL &&
@@ -28,28 +26,22 @@ int utn_getEntero(char* pTexto, char* pTextoError, int reintentos, int maximo, i
 		reintentos>=0
 		)
 		{
-
-		printf("%s",pTexto);
-		__fpurge(stdin);
-		resultadoScan=scanf("%d",&operadorBuffer);
-		while(resultadoScan ==0)
-		{
-			if(intentosFallidos<reintentos)
-			{
-				printf("%s",pTextoError);
-				__fpurge(stdin);
+			do {
+				printf("%s",pTexto);
 				resultadoScan=scanf("%d",&operadorBuffer);
-				intentosFallidos++;
-			} else {
-				banderaIntentos=1;
-				break;
-			}
+				__fpurge(stdin);
+				if((resultadoScan==1) && operadorBuffer<=maximo && minimo<=operadorBuffer)
+				{
+					retorno=0;
+					*pOperador=operadorBuffer;
+					break;
+				} else {
+					reintentos--;
+					printf("%s",pTextoError);
+				}
+
+			}while(0<=reintentos);
 		}
-		if(banderaIntentos==0){
-			retorno=0;
-			*pOperador=operadorBuffer;
-		}
-	}
 	return retorno;
 }
 
